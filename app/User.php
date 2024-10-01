@@ -17,4 +17,17 @@ class User{
         $userData = $this->userApi->getData(); // Memanggil API eksternal 
         return json_encode($userData);
     }
+
+    // Unit under test 2
+    public function getFilteredUserDataAsJson()
+    {
+        $userData = $this->userApi->getData();
+
+        $filteredData = [
+            'nama' => $userData['nama'],
+            'nim' => $userData['nim'],
+        ];
+
+        return json_encode($filteredData);
+    }
 }

@@ -18,6 +18,7 @@ class JsonTest extends TestCase
 
         // JSON yang dihasilkan oleh unit under test
         $jsonData = $user->getUserDataAsJson();
+        // echo $jsonData;
 
         $this->assertJson($jsonData, "Data bukan JSON");
     }
@@ -44,7 +45,7 @@ class JsonTest extends TestCase
         $user = new User($stubApi);
 
         // JSON yang dihasilkan oleh unit under test
-        $actualJson = $user->getUserDataAsJson();
+        $actualJson = $user->getFilteredUserDataAsJson();
         
         // File JSON yang berisi data yang diharapkan
         $expectedPath = __DIR__ . '/expectedUserData.json';
